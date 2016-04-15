@@ -1,0 +1,22 @@
+{% extends 'default/index.html.twig' %}
+
+
+{% block popup %}
+    <h1>{{ 'crud.menu.item.edit.caption' |trans({}, 'YaCMSBundle') }}</h1>
+
+    {{ form_start(edit_form) }}
+        {{ form_widget(edit_form) }}
+        <input type="submit" value="{{ 'crud.edit' |trans({}, 'YaCMSBundle') }}" />
+    {{ form_end(edit_form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_menu_item_index') }}">Back to the list</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="{{ 'crud.delete' |trans({}, 'YaCMSBundle') }}">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>{{ 'crud.menu.item.createNew.caption' |trans({}, 'YaCMSBundle') }}</h1>
+
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="{{ 'crud.create' |trans({}, 'YaCMSBundle') }}" />
+    {{ form_end(form) }}
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_menu_item_index') }}">{{ 'crud.back' |trans({}, 'YaCMSBundle') }}</a>
+        </li>
+    </ul>
+{% endblock %}
