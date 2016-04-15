@@ -1,0 +1,32 @@
+# CRUDs
+
+crud:
+    menu:
+        item:
+            edit:
+                caption: Zmiana danych pozycji menu
+            show:
+                caption: Dane pozycji menu
+            list:
+                caption: Lista pozycji menu
+            createNew:
+                caption: Tworzenie nowej pozycji menu
+            field:
+                name: Nazwa
+                link: Łącze
+                icon: Ikona
+                orderNo: Kolejność
+                enabled: Widoczność
+                locale: Wersja językowa
+                parentMenu: Menu nadrzędne
+    show: Pokaż
+    edit: Zmień
+    delete: Usuń
+    back: Powrót do listy
+    action: Akcje
+    createNew: Utwórz nową pozycję
+    create: Utwórz
+
+common:
+    yes: Tak
+    no: Nie

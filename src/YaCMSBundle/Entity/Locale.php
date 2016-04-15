@@ -71,6 +71,14 @@ class Locale
     }
 
     /**
+     * ToString - returns class as a string - here locale in format ll_CC
+     */
+    public function __toString()
+    {
+        return $this->getName();
+    }
+
+    /**
      * Get id
      *
      * @return integer
@@ -322,37 +330,4 @@ class Locale
         return $this->tags;
     }
 
-    /**
-     * Add interfaceLabel
-     *
-     * @param \YaCMSBundle\Entity\InterfaceLabel $interfaceLabel
-     *
-     * @return Locale
-     */
-    public function addInterfaceLabel(\YaCMSBundle\Entity\InterfaceLabel $interfaceLabel)
-    {
-        $this->interfaceLabels[] = $interfaceLabel;
-
-        return $this;
-    }
-
-    /**
-     * Remove interfaceLabel
-     *
-     * @param \YaCMSBundle\Entity\InterfaceLabel $interfaceLabel
-     */
-    public function removeInterfaceLabel(\YaCMSBundle\Entity\InterfaceLabel $interfaceLabel)
-    {
-        $this->interfaceLabels->removeElement($interfaceLabel);
-    }
-
-    /**
-     * Get interfaceLabels
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getInterfaceLabels()
-    {
-        return $this->interfaceLabels;
-    }
 }

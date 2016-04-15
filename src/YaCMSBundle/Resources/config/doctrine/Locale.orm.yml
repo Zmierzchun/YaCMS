@@ -46,7 +46,4 @@ YaCMSBundle\Entity\Locale:
         tags:
             targetEntity: YaCMSBundle\Entity\Tag
             mappedBy: locale
-        interfaceLabels:
-            targetEntity: YaCMSBundle\Entity\InterfaceLabel
-            mappedBy: locale
     lifecycleCallbacks: {  }

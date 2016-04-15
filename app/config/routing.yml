@@ -1,7 +1,3 @@
 ya_cms:
     resource: "@YaCMSBundle/Resources/config/routing.yml"
     prefix:   /
-
-ya_cms_admin_ifl:
-        resource: "@YaCMSBundle/Resources/config/routing/interfacelabel.yml"
-        prefix:   /admin/ifl

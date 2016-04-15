@@ -2,6 +2,10 @@ ya_cms_homepage:
     path:     /
     defaults: { _controller: YaCMSBundle:Default:index }
 
+ya_cms_admin_menu_item:
+    resource: "@YaCMSBundle/Resources/config/routing/menuitem.yml"
+    prefix:   /admin/menu/item
+
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 
