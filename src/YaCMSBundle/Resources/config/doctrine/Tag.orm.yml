@@ -1,7 +1,7 @@
 YaCMSBundle\Entity\Tag:
     type: entity
     table: null
-    repositoryClass: AppBundle\Repository\TagRepository
+    repositoryClass: YaCMSBundle\Repository\TagRepository
     gedmo:
         translation:
             locale: locale
@@ -33,7 +33,7 @@ YaCMSBundle\Entity\Tag:
             mappedBy: tags
     manyToOne:
         locale:
-            targetEntity: AppBundle\Entity\Locale
+            targetEntity: YaCMSBundle\Entity\Locale
             inversedBy: tags
             joinColumn:
                 name: locale

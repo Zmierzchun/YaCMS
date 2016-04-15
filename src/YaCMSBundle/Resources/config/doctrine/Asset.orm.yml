@@ -58,7 +58,7 @@ YaCMSBundle\Entity\Asset:
             targetEntity: Asset
             mappedBy: parent
         translations:
-            targetEntity: AppBundle\Entity\Asset
+            targetEntity: YaCMSBundle\Entity\Asset
             mappedBy: original
 
 
@@ -74,10 +74,10 @@ YaCMSBundle\Entity\Asset:
                 referencedColumnName: id
                 nullable: false
         original:
-            targetEntity: AppBundle\Entity\Asset
+            targetEntity: YaCMSBundle\Entity\Asset
             inversedBy: translations
         locale:
-            targetEntity: AppBundle\Entity\Locale
+            targetEntity: YaCMSBundle\Entity\Locale
             inversedBy: assets
             joinColumn:
                 name: locale

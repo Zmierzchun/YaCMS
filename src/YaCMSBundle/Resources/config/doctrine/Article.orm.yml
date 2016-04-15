@@ -61,26 +61,26 @@ YaCMSBundle\Entity\Article:
 
     oneToMany:
         children:
-            targetEntity: AppBundle\Entity\Article
+            targetEntity: YaCMSBundle\Entity\Article
             mappedBy: parent
 
         translations:
-            targetEntity: AppBundle\Entity\Article
+            targetEntity: YaCMSBundle\Entity\Article
             mappedBy: original
 
     manyToOne:
 
         parent:
-            targetEntity: AppBundle\Entity\Article
+            targetEntity: YaCMSBundle\Entity\Article
             inversedBy: children
 
         original:
-            targetEntity: AppBundle\Entity\Article
+            targetEntity: YaCMSBundle\Entity\Article
             inversedBy: translations
 
         contentType:
             nullable: false
-            targetEntity: AppBundle\Entity\ContentType
+            targetEntity: YaCMSBundle\Entity\ContentType
             inversedBy: articles
             joinColumn:
                 name: contentType
@@ -88,7 +88,7 @@ YaCMSBundle\Entity\Article:
                 nullable: false
 
         locale:
-            targetEntity: AppBundle\Entity\Locale
+            targetEntity: YaCMSBundle\Entity\Locale
             inversedBy: articles
             joinColumn:
                 name: locale
@@ -97,7 +97,7 @@ YaCMSBundle\Entity\Article:
 
     manyToMany:
         tags:
-            targetEntity: AppBundle\Entity\Tag
+            targetEntity: YaCMSBundle\Entity\Tag
             inversedBy: articles
 
     lifecycleCallbacks: {  }

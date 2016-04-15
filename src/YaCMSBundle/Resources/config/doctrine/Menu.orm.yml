@@ -17,23 +17,23 @@ YaCMSBundle\Entity\Menu:
 
     oneToMany:
         items:
-            targetEntity: AppBundle\Entity\MenuItem
+            targetEntity: YaCMSBundle\Entity\MenuItem
             mappedBy: parentMenu
             cascade:
                 - remove
             orphanRemoval: true
         translations:
-            targetEntity: AppBundle\Entity\Menu
+            targetEntity: YaCMSBundle\Entity\Menu
             mappedBy: original
             cascade:
                 - remove
             orphanRemoval: true
     manyToOne:
         original:
-            targetEntity: AppBundle\Entity\Menu
+            targetEntity: YaCMSBundle\Entity\Menu
             inversedBy: translations
         locale:
-            targetEntity: AppBundle\Entity\Locale
+            targetEntity: YaCMSBundle\Entity\Locale
             inversedBy: menus
             joinColumn:
                 name: locale

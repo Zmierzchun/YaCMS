@@ -32,21 +32,21 @@ YaCMSBundle\Entity\Locale:
 
     oneToMany:
         menus:
-            targetEntity: AppBundle\Entity\Menu
+            targetEntity: YaCMSBundle\Entity\Menu
             mappedBy: locale
         menuItems:
-            targetEntity: AppBundle\Entity\MenuItem
+            targetEntity: YaCMSBundle\Entity\MenuItem
             mappedBy: locale
         assets:
-            targetEntity: AppBundle\Entity\Asset
+            targetEntity: YaCMSBundle\Entity\Asset
             mappedBy: locale
         articles:
-            targetEntity: AppBundle\Entity\Article
+            targetEntity: YaCMSBundle\Entity\Article
             mappedBy: locale
         tags:
-            targetEntity: AppBundle\Entity\Tag
+            targetEntity: YaCMSBundle\Entity\Tag
             mappedBy: locale
         interfaceLabels:
-            targetEntity: AppBundle\Entity\InterfaceLabel
+            targetEntity: YaCMSBundle\Entity\InterfaceLabel
             mappedBy: locale
     lifecycleCallbacks: {  }

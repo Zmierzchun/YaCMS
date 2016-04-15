@@ -27,7 +27,7 @@ YaCMSBundle\Entity\MenuItem:
 
     oneToMany:
         translations:
-            targetEntity: AppBundle\Entity\MenuItem
+            targetEntity: YaCMSBundle\Entity\MenuItem
             mappedBy: original
             cascade:
                 - remove
@@ -35,17 +35,17 @@ YaCMSBundle\Entity\MenuItem:
 
     manyToOne:
         parentMenu:
-            targetEntity: AppBundle\Entity\Menu
+            targetEntity: YaCMSBundle\Entity\Menu
             inversedBy: items
             joinColumn:
                 name: parentMenu
                 referencedColumnName: id
                 nullable: false
         original:
-            targetEntity: AppBundle\Entity\MenuItem
+            targetEntity: YaCMSBundle\Entity\MenuItem
             inversedBy: translations
         locale:
-            targetEntity: AppBundle\Entity\Locale
+            targetEntity: YaCMSBundle\Entity\Locale
             inversedBy: menuItems
             joinColumn:
                 name: locale

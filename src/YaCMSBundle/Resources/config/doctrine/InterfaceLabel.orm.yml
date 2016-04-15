@@ -20,7 +20,7 @@ YaCMSBundle\Entity\InterfaceLabel:
 
     oneToMany:
         translations:
-            targetEntity: AppBundle\Entity\InterfaceLabel
+            targetEntity: YaCMSBundle\Entity\InterfaceLabel
             mappedBy: original
             cascade:
                 - remove
@@ -28,10 +28,10 @@ YaCMSBundle\Entity\InterfaceLabel:
 
     manyToOne:
         original:
-            targetEntity: AppBundle\Entity\InterfaceLabel
+            targetEntity: YaCMSBundle\Entity\InterfaceLabel
             inversedBy: translations
         locale:
-            targetEntity: AppBundle\Entity\Locale
+            targetEntity: YaCMSBundle\Entity\Locale
             inversedBy: interfaceLabels
             joinColumn:
                 name: locale
