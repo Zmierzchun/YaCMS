@@ -47,6 +47,15 @@ class Menu
     }
 
     /**
+     * ToString implementation - shows name of the Menu
+     */
+
+    public function __toString()
+    {
+        return $this->getName();
+    }
+
+    /**
      * Get id
      *
      * @return integer

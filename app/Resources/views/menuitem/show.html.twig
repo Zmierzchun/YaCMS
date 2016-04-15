@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>{{ 'crud.menu.item.show.caption' |trans({}, 'YaCMSBundle') }}</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>{{ 'crud.menu.item.field.name' |trans({}, 'YaCMSBundle') }}</th>
+                <td>{{ menuItem.name }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'crud.menu.item.field.link' |trans({}, 'YaCMSBundle') }}</th>
+                <td>{{ menuItem.link }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'crud.menu.item.field.icon' |trans({}, 'YaCMSBundle') }}</th>
+                <td>{{ menuItem.icon }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'crud.menu.item.field.orderNo' |trans({}, 'YaCMSBundle') }}</th>
+                <td>{{ menuItem.orderNo }}</td>
+            </tr>
+            <tr>
+                <th>{{ 'crud.menu.item.field.enabled' |trans({}, 'YaCMSBundle') }}</th>
+                <td>
+                    {% if menuItem.enabled %}
+                        {{ 'common.yes' |trans({}, 'YaCMSBundle') }}
+                    {% else %}
+                        {{ 'common.no' |trans({}, 'YaCMSBundle') }}
+                    {% endif %}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('admin_menu_item_index') }}">{{ 'crud.back' |trans({}, 'YaCMSBundle') }}</a>
+        </li>
+        <li>
+            <a href="{{ path('admin_menu_item_edit', { 'id': menuItem.id }) }}">{{ 'crud.edit' |trans({}, 'YaCMSBundle') }}</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="{{ 'crud.delete' |trans({}, 'YaCMSBundle') }}">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

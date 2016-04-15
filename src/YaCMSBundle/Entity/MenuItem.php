@@ -64,6 +64,13 @@ class MenuItem
     {
         $this->translations = new \Doctrine\Common\Collections\ArrayCollection();
     }
+    /**
+     * ToString - returns a string on calling the entity class
+     */
+    public function __toString()
+    {
+        return $this->getName();
+    }
 
     /**
      * Get id
