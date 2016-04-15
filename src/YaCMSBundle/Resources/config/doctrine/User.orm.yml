@@ -1,0 +1,11 @@
+YaCMSBundle\Entity\User:
+    type: entity
+    table: yacms_user
+    repositoryClass: YaCMSBundle\Repository\UserRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    lifecycleCallbacks: {  }

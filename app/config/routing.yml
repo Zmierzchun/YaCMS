@@ -1,0 +1,4 @@
+ya_cms:
+    resource: "@YaCMSBundle/Resources/config/routing.yml"
+    prefix:   /
+

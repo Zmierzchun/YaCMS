@@ -1,0 +1,4 @@
+services:
+#    ya_cms.example:
+#        class: YaCMSBundle\Example
+#        arguments: ["@service_id", "plain_value", %parameter%]
