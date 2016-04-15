@@ -1,0 +1,40 @@
+YaCMSBundle\Entity\InterfaceLabel:
+    type: entity
+    table: null
+    repositoryClass: YaCMSBundle\Repository\InterfaceLabelRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+            nullable: false
+
+        content:
+            type: text
+            nullable: false
+
+    oneToMany:
+        translations:
+            targetEntity: AppBundle\Entity\InterfaceLabel
+            mappedBy: original
+            cascade:
+                - remove
+            orphanRemoval: true
+
+    manyToOne:
+        original:
+            targetEntity: AppBundle\Entity\InterfaceLabel
+            inversedBy: translations
+        locale:
+            targetEntity: AppBundle\Entity\Locale
+            inversedBy: interfaceLabels
+            joinColumn:
+                name: locale
+                referencedColumnName: id
+                nullable: false
+    lifecycleCallbacks: {  }

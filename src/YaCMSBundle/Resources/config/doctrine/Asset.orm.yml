@@ -1,0 +1,92 @@
+YaCMSBundle\Entity\Asset:
+    type: entity
+    table: null
+    repositoryClass: YaCMSBundle\Repository\AssetRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+        description:
+            type: text
+            length: 255
+        link:
+            type: string
+            length: 255
+        slug:
+            type: string
+            length: 255
+            unique: true
+            gedmo:
+                slug:
+                  separator: -
+                  style: lower
+                  fields:
+                      - title
+
+        enabled:
+            type: boolean
+        created:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        modified:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+        published:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+                    field:
+                        - enabled
+
+    indexes:
+        search_idx:
+            columns: title
+
+    oneToMany:
+        children:
+            targetEntity: Asset
+            mappedBy: parent
+        translations:
+            targetEntity: AppBundle\Entity\Asset
+            mappedBy: original
+
+
+    manyToOne:
+        parent:
+            targetEntity: Asset
+            inversedBy: children
+        contentType:
+            targetEntity: ContentType
+            inversedBy: assets
+            joinColumn:
+                name: contentType
+                referencedColumnName: id
+                nullable: false
+        original:
+            targetEntity: AppBundle\Entity\Asset
+            inversedBy: translations
+        locale:
+            targetEntity: AppBundle\Entity\Locale
+            inversedBy: assets
+            joinColumn:
+                name: locale
+                referencedColumnName: id
+                nullable: false
+
+    manyToMany:
+        tags:
+            targetEntity: Tag
+            inversedBy: assets
+
+    lifecycleCallbacks: {  }

@@ -1,0 +1,103 @@
+YaCMSBundle\Entity\Article:
+    type: entity
+    table: null
+    repositoryClass: YaCMSBundle\Repository\ArticleRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: 255
+            nullable: false
+
+        description:
+            type: text
+            nullable: false
+
+        content:
+            type: text
+            nullable: false
+
+        enabled:
+            type: boolean
+            nullable: false
+            default: false
+
+        slug:
+            type: string
+            length: 255
+            unique: true
+            gedmo:
+                slug:
+                    separator: -
+                    style: lower
+                    fields:
+                      - title
+        created:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        modified:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+        published:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+                    field:
+                        - enabled
+
+    indexes:
+        search_idx:
+            columns: slug
+
+    oneToMany:
+        children:
+            targetEntity: AppBundle\Entity\Article
+            mappedBy: parent
+
+        translations:
+            targetEntity: AppBundle\Entity\Article
+            mappedBy: original
+
+    manyToOne:
+
+        parent:
+            targetEntity: AppBundle\Entity\Article
+            inversedBy: children
+
+        original:
+            targetEntity: AppBundle\Entity\Article
+            inversedBy: translations
+
+        contentType:
+            nullable: false
+            targetEntity: AppBundle\Entity\ContentType
+            inversedBy: articles
+            joinColumn:
+                name: contentType
+                referencedColumnName: id
+                nullable: false
+
+        locale:
+            targetEntity: AppBundle\Entity\Locale
+            inversedBy: articles
+            joinColumn:
+                name: locale
+                referencedColumnName: id
+                nullable: false
+
+    manyToMany:
+        tags:
+            targetEntity: AppBundle\Entity\Tag
+            inversedBy: articles
+
+    lifecycleCallbacks: {  }

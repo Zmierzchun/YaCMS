@@ -1,0 +1,27 @@
+YaCMSBundle\Entity\ContentType:
+    type: entity
+    table: null
+    repositoryClass: YaCMSBundle\Repository\ContentTypeRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: '64'
+            unique: true
+    manyToOne:
+
+
+    oneToMany:
+        assets:
+            targetEntity: Asset
+            mappedBy: contentType
+        articles:
+            targetEntity: Article
+            mappedBy: contentType
+
+    lifecycleCallbacks: {  }

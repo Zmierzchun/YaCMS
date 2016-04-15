@@ -1,0 +1,56 @@
+YaCMSBundle\Entity\MenuItem:
+    type: entity
+    table: null
+    repositoryClass: YaCMSBundle\Repository\MenuItemRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: '128'
+            gedmo:
+                - translatable
+        link:
+            type: string
+            length: 255
+        icon:
+            type: string
+            length: 255
+        orderNo:
+            type: integer
+        enabled:
+            type: boolean
+
+    oneToMany:
+        translations:
+            targetEntity: AppBundle\Entity\MenuItem
+            mappedBy: original
+            cascade:
+                - remove
+            orphanRemoval: true
+
+    manyToOne:
+        parentMenu:
+            targetEntity: AppBundle\Entity\Menu
+            inversedBy: items
+            joinColumn:
+                name: parentMenu
+                referencedColumnName: id
+                nullable: false
+        original:
+            targetEntity: AppBundle\Entity\MenuItem
+            inversedBy: translations
+        locale:
+            targetEntity: AppBundle\Entity\Locale
+            inversedBy: menuItems
+            joinColumn:
+                name: locale
+                referencedColumnName: id
+                nullable: false
+
+    lifecycleCallbacks: {  }
+
